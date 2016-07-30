@@ -1,5 +1,5 @@
 {
-  "name": "CountriesToCities-api",
+  "name": "countries-to-cities-api",
   "version": "0.0.0",
   "description": "Provides a list of countries and list of cities based on a country",
   "engines": {
@@ -9,20 +9,22 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {
-    "body-parser": "~1.0.1",
+  "dependencies": {    
     "ejs": "2.4.1",
     "express": "4.13.3",
     "jsonfile": "^2.3.1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/lkmhr/CountriesToCities"
   },
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "api",
+    "country",
+    "city"
   ],
   "license": "MIT"
 }

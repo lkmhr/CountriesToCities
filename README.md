@@ -1,39 +1,29 @@
-# node-js-getting-started
+# Countries to Cities
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+A simple API to get list of country names and/or city names. Visit [Heroku page](https://countries-to-cities.herokuapp.com) for complete more details.
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## How to use?
 
-## Running Locally
+The API can be used to get country names and cities:
 
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+### To get Country names
 
-```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
-$ npm install
-$ npm start
-```
+Use _getCountry_ to get country
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+**type**
+- `_url_/getCountry?type=array` to get as list of country names in single array.
+- `_url_/getCountry?type=object` to get as list of country names as objects.
 
-## Deploying to Heroku
+**contains**
+- `_url_/getCountry?contains=<substring>` returns list of countries whose name contains _<substring>_.
 
-```
-$ heroku create
-$ git push heroku master
-$ heroku open
-```
-or
+### To get City names
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+Use _getCity_ to get country
 
-## Documentation
+**country**
+- `_url_/getCountry?country=<name>` returns list of cities in country named _<name>_.
 
-For more information about using Node.js on Heroku, see these Dev Center articles:
+## Credits
 
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
+Data is derived from  [David-Haim's repo](https://github.com/David-Haim/CountriesToCitiesJSON).

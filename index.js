@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');
 var jsonfile = require('jsonfile');
 
-var filePath = './data.json';
+var filePath = './data_source/data.json';
 
 // use body parser
 app.use(bodyParser.urlencoded({ extended: true }));
