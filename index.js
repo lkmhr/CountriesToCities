@@ -4,10 +4,6 @@ var jsonfile = require('jsonfile');
 
 var filePath = './data_source/data.json';
 
-// use body parser
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
