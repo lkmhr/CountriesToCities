@@ -16,11 +16,29 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
-app.get('/getCountry', function(request, response) {
+app.get([
+    '/getCountry',
+    '/country/',
+    '/country/contains/:contains',
+    '/country/as/:type',
+    '/country/contains/:contains/as/:type',
+    '/country/as/:type/contains/:contains/'
+  ], function(request, response) {
+
+  //make query case-insensitive
+  for (var key in request.query) {
+    request.query[key.toLowerCase()] = request.query[key];
+  }
+
+  //make params case-insensitive
+  for (var key in request.params) {
+    request.params[key.toLowerCase()] = request.params[key];
+    console.log(request.params[key]);
+  }
 
   var reqParam = {
-    type: request.query.type,
-    contains: request.query.contains
+    type: request.query.type || request.params.type,
+    contains: request.query.contains || request.params.contains
   }
 
   var outputJSON = {
@@ -61,15 +79,20 @@ app.get('/getCountry', function(request, response) {
   }
 });
 
-app.get('/getCity', function(request, response) {
+app.get(['/getCity','/city/in/:country'], function(request, response) {
 
   //make query case-insensitive
   for (var key in request.query) {
     request.query[key.toLowerCase()] = request.query[key];
   }
 
+  //make params case-insensitive
+  for (var key in request.params) {
+    request.params[key.toLowerCase()] = request.params[key];
+  }
+
   var reqParam = {
-    country: request.query.country
+    country: request.query.country || request.params.country
   }
 
   var outputJSON = {
@@ -101,6 +124,16 @@ app.get('/getCity', function(request, response) {
     outputJSON["error"] = "no/invalid country specified";
     response.json(outputJSON);
   }
+});
+
+//The 404 Route
+app.get('*', function(request, response){
+  var outputJSON = {
+    source: "heroku",
+    credit: "visit https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json for data",
+    error: "404 - the url is wrongly formatted."
+  };
+  response.json(outputJSON);
 });
 
 app.listen(app.get('port'), function() {

@@ -9,7 +9,7 @@
   "scripts": {
     "start": "node index.js"
   },
-  "dependencies": {    
+  "dependencies": {
     "ejs": "2.4.1",
     "express": "4.13.3",
     "jsonfile": "^2.3.1"

@@ -1,0 +1,124 @@
+<h2><span class="glyphicon glyphicon-info-sign"></span> How to use?</h2>
+<div class="row">
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-pushpin"> </span> Get Country Names</h3>
+    <p>use <strong>/getCountry?[key]=[value]</strong> to get country names</p>
+    <div class="list-group">
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading">Type parameter</h4>
+        <hr>
+        <p class="list-group-item-text">
+          Gives the output JSON in given type format.
+          <br>
+          Usage: <strong>?type=[type]</strong></em>, where <em>[type]</em> can be-
+          <br><br>
+          <ul>
+            <li><strong>array : </strong> returns country names as single array.</li>
+            <li><strong>object : </strong> returns country names as objects. If no type is provided It defaults to <em>object</em></li>
+          </ul>
+        </p>
+      </a>
+    </div>
+    <div class="list-group">
+      <a  class="list-group-item">
+        <h4 class="list-group-item-heading">Contains parameter</h4>
+        <hr>
+        <p class="list-group-item-text">
+          Gives the name of countries which have the given substring in their names.
+          <br><br>
+          Usage: <strong>?contains=[str]</strong></em>, returns all countries containing <em>[str]</em>.
+          <br>
+        </p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-pushpin"> </span> Get City Names</h3>
+    <p>use <strong>/getCity?[key]=[value]</strong> to get city names</p>
+    <div class="list-group">
+      <a  class="list-group-item">
+        <h4 class="list-group-item-heading">Country parameter</h4>
+        <hr>
+        <p class="list-group-item-text">
+          Gives the name of cities which are in that country.
+          <br><br>
+          Usage: <strong>?country=[name]</strong></em>, returns list of cities that are in <em>[name]</em> country.
+          <br>
+        </p>
+      </a>
+    </div>
+  </div>
+</div> <!-- row -->
+<hr>
+<h2><span class="glyphicon glyphicon-info-sign"></span> Examples : </h2>
+<div class="row">
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-upload"> </span> Input <em>(get country names as array)</h3>
+    <code>
+      <pre>https://countries-to-cities.herokuapp.com/getCountry?type=array&contains=Chi</pre>
+    </code>
+  </div>
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-download"> </span> Output</h3>
+    <code>
+      <pre>
+{
+"source":"heroku",
+"credit":"visit https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json for data",
+"data":["China","Chile"]
+}        </pre>
+    </code>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-upload"> </span> Input <em>(get country names as objects)</h3>
+    <code>
+      <pre>
+https://countries-to-cities.herokuapp.com/getCountry?type=object&contains=Chi
+
+<strong>//Or w/o type</strong>
+https://countries-to-cities.herokuapp.com/getCountry?contains=Chi</pre>
+    </code>
+  </div>
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-download"> </span> Output</h3>
+    <code>
+      <pre>
+{
+"source":"heroku",
+"credit":"visit https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json for data",
+"data":[
+  {"name":"China"},
+  {"name":"Chile"}
+]
+}        </pre>
+    </code>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-upload"> </span> Input <em>(get city names)</em></h3>
+    <code>
+      <pre>https://countries-to-cities.herokuapp.com/getCity?country=Taiwan</pre>
+    </code>
+  </div>
+  <div class="col-md-6">
+    <h3><span class="glyphicon glyphicon-download"> </span> Output</h3>
+    <code>
+      <pre>
+{
+"source":"heroku",
+"credit":"visit https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json for data",
+"data":{
+  "Taiwan": ["Taipei","Taoyuan","Tuchang","Hsinchu","Nankan","Taichung","Chang-hua","Kao-sung","Taitung","Tainan",
+  "Keelung","Yunlin County","Lugang","Puli","Pingtung","Penghu'ercun","Nantou","Miaoli","Hualian","Gaozhongyicun",
+  "Wutai","Checheng","Hengchun","Shalun","Chiayi","Maru","Matsu","Yilan","Shuishang","Shuyi","Budai","Toucheng",
+  "Shoufeng","Ma-kung","Wang'an","Meilun","Jincheng","Shulin","Pozi","Suqin","Neihu","Yangmei","Hemei","Wangtongwen",
+  "Kaohsiung City","Xinzhuang","Taichang","Linkou","Yanping","Taipingding","Wan-hua","Zhunan","Caogang","Douliu","Erlin",
+  "Shuiliu","Dahu","Gangshan","Fengshan","Xinji","Nanhua","Shetou","Fanlu","Shuilin","Zhuqi","Yuli","Su'ao","Wanluan","Zhubei"]
+}
+}        </pre>
+    </code>
+  </div>
+</div>
