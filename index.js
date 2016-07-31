@@ -8,7 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 
 var allowCrossDomain = function(request,response, next) {
   request.header('Access-Control-Allow-Origin','*');
-  request.header('Access-Control-Allow-Methods','GET,PUT','POST','DELETE');
+  request.header('Access-Control-Allow-Methods','GET','PUT','POST','DELETE');
   request.header('Access-Control-Allow-Headers','Content-Type');
   next();
 }
