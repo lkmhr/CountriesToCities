@@ -6,7 +6,17 @@ var filePath = './data_source/data.json';
 
 app.set('port', (process.env.PORT || 5000));
 
+var allowCrossDomain = function(request,response, next) {
+  request.header('Access-Control-Allow-Origin','*');
+  request.header('Access-Control-Allow-Methods','GET,PUT','POST','DELETE');
+  request.header('Access-Control-Allow-Headers','Content-Type');
+  next();
+}
+
+
 app.use(express.static(__dirname + '/public'));
+app.use(allowCrossDomain);
+
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
