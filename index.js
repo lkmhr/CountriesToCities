@@ -77,11 +77,11 @@ app.get([
         outputJSON["data"] = list;
       }
 
-      response.json(outputJSON);
+      response.jsonp(outputJSON);
     });
   } else {
     outputJSON["error"] = "invalid type specified";
-    response.json(outputJSON);
+    response.jsonp(outputJSON);
   }
 });
 
