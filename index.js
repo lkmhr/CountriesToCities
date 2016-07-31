@@ -124,11 +124,11 @@ app.get(['/getCity','/city/in/:country'], function(request, response) {
         }
         outputJSON["data"] = list;
       }
-      response.json(outputJSON);
+      response.jsonp(outputJSON);
     });
   } else {
     outputJSON["error"] = "no/invalid country specified";
-    response.json(outputJSON);
+    response.jsonp(outputJSON);
   }
 });
 
@@ -139,7 +139,7 @@ app.get('*', function(request, response){
     credit: "visit https://raw.githubusercontent.com/David-Haim/CountriesToCitiesJSON/master/countriesToCities.json for data",
     error: "404 - the url is wrongly formatted."
   };
-  response.json(outputJSON);
+  response.jsonp(outputJSON);
 });
 
 app.listen(app.get('port'), function() {
